@@ -15,16 +15,15 @@ import lombok.NoArgsConstructor;
 @Entity
 @NoArgsConstructor
 @Table(name = "Users")
-public class User {
+abstract class User {
 
-    public User(UserDTO data){
+    protected User(UserDTO data){
         this.name = data.name();
         this.userName = data.user_name();
         this.password = data.password();
         this.email = data.email();
     
     }
-
 
     @Id
     @GeneratedValue(strategy = GenerationType.AUTO)

@@ -1,33 +1,41 @@
 package com.banhodepote.api.controller;
 
+
 import java.util.List;
 
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.data.domain.Sort;
 import org.springframework.web.bind.annotation.GetMapping;
+import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
 import com.banhodepote.api.dto.UserDTO;
-import com.banhodepote.api.model.User;
-import com.banhodepote.api.repository.UserRepository;
+import com.banhodepote.api.model.Waiter;
+import com.banhodepote.api.repository.WaiterRepository;
 
 @RestController
-@RequestMapping("/vida")
-public class UserController {
+@RequestMapping("/waiter")
+public class WaiterController {
 
     @Autowired
-    private UserRepository repository;
+    private WaiterRepository repository;
 
     @GetMapping
-    public List<User> helloMundo(){
+    public List<Waiter> allWaiters(){
         return repository.findAll();
     }
 
     @PostMapping
-    public void helloMundo2(@RequestBody UserDTO req){
-
-        repository.save(new User(req));
+    public void subscribeWaiter(@RequestBody UserDTO req){
+        repository.save(new Waiter(req));
     }
+
+    @GetMapping("/{name}")
+    public List<Waiter> findWaiter(@PathVariable String name){
+
+        return repository.findAllByName(name);
+    } 
 }
