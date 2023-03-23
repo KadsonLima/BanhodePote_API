@@ -11,8 +11,6 @@ import lombok.NoArgsConstructor;
 @NoArgsConstructor
 public class Waiter extends User {
 
-    private Integer mesa;
-
     public Waiter(UserDTO data){
         super();
         setEmail(data.email());
@@ -23,10 +21,7 @@ public class Waiter extends User {
 
 
 
-    public String preparaPedido(){
-        this.mesa = 20;
-       return ("GARÇOM :" + this.getName() + "ESTA OPERANDO NA MESA " + this.mesa);
-    }
+    
 
    
 }
