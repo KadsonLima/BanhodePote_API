@@ -13,12 +13,22 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
 import com.banhodepote.api.dto.UserDTO;
+import com.banhodepote.api.model.Items;
+import com.banhodepote.api.model.Order;
 import com.banhodepote.api.model.Waiter;
+import com.banhodepote.api.repository.OrderRepository;
 import com.banhodepote.api.repository.WaiterRepository;
+import com.banhodepote.api.services.OrderService;
 
 @RestController
 @RequestMapping("/waiter")
 public class WaiterController {
+
+    @Autowired
+    private OrderRepository orderRepository;
+
+    @Autowired
+    private OrderService orderService;
 
     @Autowired
     private WaiterRepository repository;
@@ -38,4 +48,12 @@ public class WaiterController {
 
         return repository.findAllByName(name);
     } 
+
+    @PostMapping("/{mesa}")
+    public List<Order> addOrder(@RequestBody List<Items> items,@PathVariable int mesa){
+        Order order = orderService.criarPedido(items, Long.valueOf(1) );
+        System.out.println(order);
+        return orderRepository.findAll();
+
+    }
 }
