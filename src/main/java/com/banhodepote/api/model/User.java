@@ -1,12 +1,14 @@
 package com.banhodepote.api.model;
 
 import com.banhodepote.api.dto.UserDTO;
+import com.fasterxml.jackson.annotation.JsonIgnore;
 
 import jakarta.persistence.Column;
 import jakarta.persistence.Entity;
 import jakarta.persistence.GeneratedValue;
 import jakarta.persistence.GenerationType;
 import jakarta.persistence.Id;
+import jakarta.persistence.SequenceGenerator;
 import jakarta.persistence.Table;
 import lombok.Data;
 import lombok.NoArgsConstructor;
@@ -26,12 +28,14 @@ abstract class User {
     }
 
     @Id
-    @GeneratedValue(strategy = GenerationType.AUTO)
+    @GeneratedValue(strategy = GenerationType.SEQUENCE, generator = "users_seq")
+    @SequenceGenerator(name = "users_seq", allocationSize = 25)
     private Long id;
 
-    @Column(length = 30, nullable = false)
+    @Column(name="user_name", length = 30, nullable = false)
     private String userName;
     
+    @JsonIgnore
     @Column(length = 30, nullable = false)
     private String password;
     
