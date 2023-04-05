@@ -13,6 +13,7 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
 import com.banhodepote.api.dto.ItemDTO;
+import com.banhodepote.api.enums.CategoryFood;
 import com.banhodepote.api.model.Items;
 import com.banhodepote.api.repository.ItemsRepository;
 
@@ -33,9 +34,9 @@ public class ItemController {
     }
 
     @GetMapping("/{categoryId}")
-    public Optional<Items> getItemsByCategory(@PathVariable int categoryId){
+    public List<Items> getItemsByCategory(@PathVariable int categoryId){
 
-        return repository.findById((long)categoryId);
+        return repository.findByCategoryFood(CategoryFood.fromValue(categoryId));
 
     }
 
