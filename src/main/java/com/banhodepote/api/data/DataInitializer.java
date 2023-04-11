@@ -7,6 +7,7 @@ import org.springframework.context.annotation.Configuration;
 
 import com.banhodepote.api.dto.ItemDTO;
 import com.banhodepote.api.dto.UserDTO;
+import com.banhodepote.api.model.Items;
 import com.banhodepote.api.model.Waiter;
 import com.banhodepote.api.repository.ItemsRepository;
 import com.banhodepote.api.repository.WaiterRepository;
@@ -16,14 +17,15 @@ public class DataInitializer implements CommandLineRunner {
 
     @Autowired
     private WaiterRepository waiterRepository;
-    // @Autowired
-    // private ItemsRepository itemsRepository;
-    // @Autowired
-    // private CategoryRepository categoryRepository;
-
+    @Autowired
+    private ItemsRepository itemsRepository;
 
     @Override
     public void run(String... args) throws Exception {
+
+        waiterRepository.deleteAll();
+        itemsRepository.deleteAll();
+
 
         Waiter waiter1 = new Waiter(new UserDTO("kadson1", "Kadson 1", "kadson-1@hotmail.com", "3205083f2"));
         Waiter waiter2 = new Waiter(new UserDTO("kadson2", "Kadson 2", "kadson-2@hotmail.com", "32050832"));
@@ -31,18 +33,11 @@ public class DataInitializer implements CommandLineRunner {
         
         waiterRepository.saveAll(Arrays.asList(waiter1, waiter2, waiter3));
 
-        // CategoryFood category1 = new CategoryFood("PETISCO");
-        // CategoryFood category2 = new CategoryFood("PRATO");
-        // CategoryFood category3 = new CategoryFood("BEBIDAS");
+        Items item1 = new Items(new ItemDTO("Pizza", 70.00,1));
+        Items item2 = new Items(new ItemDTO("Hamburguer", 15.00,1));
+        Items item3 = new Items(new ItemDTO("Batata Frita", 5.00,2));
 
-        // categoryRepository.saveAll(Arrays.asList(category1, category2, category3));
-        
-
-        // Items item1 = new Items(new ItemDTO("Pizza", 70.00,1));
-        // Items item2 = new Items(new ItemDTO("Hamburguer", 15.00,1));
-        // Items item3 = new Items(new ItemDTO("Batata Frita", 5.00,2));
-
-        // itemsRepository.saveAll(Arrays.asList(item1, item2, item3));
+        itemsRepository.saveAll(Arrays.asList(item1, item2, item3));
         
     }
 }
