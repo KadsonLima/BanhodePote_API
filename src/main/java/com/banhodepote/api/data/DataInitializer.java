@@ -10,6 +10,7 @@ import com.banhodepote.api.dto.UserDTO;
 import com.banhodepote.api.model.Items;
 import com.banhodepote.api.model.Waiter;
 import com.banhodepote.api.repository.ItemsRepository;
+import com.banhodepote.api.repository.OrderRepository;
 import com.banhodepote.api.repository.WaiterRepository;
 
 @Configuration
@@ -19,17 +20,17 @@ public class DataInitializer implements CommandLineRunner {
     private WaiterRepository waiterRepository;
     @Autowired
     private ItemsRepository itemsRepository;
+    @Autowired
+    private OrderRepository orderRepository;
 
     @Override
     public void run(String... args) throws Exception {
 
-        waiterRepository.deleteAll();
-        itemsRepository.deleteAll();
+        if (waiterRepository.count() == 0 && itemsRepository.count() == 0) {
 
-
-        Waiter waiter1 = new Waiter(new UserDTO("kadson1", "Kadson 1", "kadson-1@hotmail.com", "3205083f2"));
-        Waiter waiter2 = new Waiter(new UserDTO("kadson2", "Kadson 2", "kadson-2@hotmail.com", "32050832"));
-        Waiter waiter3 = new Waiter(new UserDTO("kadson3", "Kadson 3", "kadson-3@hotmail.com", "32050832"));
+        Waiter waiter1 = new Waiter(new UserDTO("waiter1", "Otávio Santos", "waiter-1@hotmail.com", "dsfsdfds"));
+        Waiter waiter2 = new Waiter(new UserDTO("waiter2", "Davi Azevedo", "waiter-2@hotmail.com", "sdfdsfdsf"));
+        Waiter waiter3 = new Waiter(new UserDTO("waiter3", "Murilo Oliveira", "waiter-3@hotmail.com", "dsfsdfsdfsd"));
         
         waiterRepository.saveAll(Arrays.asList(waiter1, waiter2, waiter3));
 
@@ -38,6 +39,6 @@ public class DataInitializer implements CommandLineRunner {
         Items item3 = new Items(new ItemDTO("Batata Frita", 5.00,2));
 
         itemsRepository.saveAll(Arrays.asList(item1, item2, item3));
-        
+        }
     }
 }

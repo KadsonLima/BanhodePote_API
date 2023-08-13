@@ -48,10 +48,5 @@ public class WaiterController {
         return repository.findAllByName(name);
     } 
 
-    @PostMapping("/{mesa}")
-    public List<Order> addOrder(@RequestBody List<Items> items,@PathVariable int mesa){
-        Order order = orderService.criarPedido(items, Long.valueOf(1) );
-        return orderRepository.findAll();
-
-    }
+    
 }
