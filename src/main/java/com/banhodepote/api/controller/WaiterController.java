@@ -12,8 +12,6 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
 import com.banhodepote.api.dto.UserDTO;
-import com.banhodepote.api.model.Items;
-import com.banhodepote.api.model.Order;
 import com.banhodepote.api.model.Waiter;
 import com.banhodepote.api.repository.OrderRepository;
 import com.banhodepote.api.repository.WaiterRepository;

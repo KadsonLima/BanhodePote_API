@@ -10,7 +10,6 @@ import com.banhodepote.api.dto.UserDTO;
 import com.banhodepote.api.model.Items;
 import com.banhodepote.api.model.Waiter;
 import com.banhodepote.api.repository.ItemsRepository;
-import com.banhodepote.api.repository.OrderRepository;
 import com.banhodepote.api.repository.WaiterRepository;
 
 @Configuration
@@ -20,8 +19,6 @@ public class DataInitializer implements CommandLineRunner {
     private WaiterRepository waiterRepository;
     @Autowired
     private ItemsRepository itemsRepository;
-    @Autowired
-    private OrderRepository orderRepository;
 
     @Override
     public void run(String... args) throws Exception {

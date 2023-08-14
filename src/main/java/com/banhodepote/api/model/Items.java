@@ -1,13 +1,10 @@
 package com.banhodepote.api.model;
 
 
-import java.util.ArrayList;
-import java.util.List;
-
+import java.util.HashSet;
+import java.util.Set;
 import com.banhodepote.api.dto.ItemDTO;
 import com.banhodepote.api.enums.CategoryFood;
-import com.fasterxml.jackson.annotation.JsonIgnore;
-
 import jakarta.persistence.Column;
 import jakarta.persistence.Entity;
 import jakarta.persistence.EnumType;
@@ -31,15 +28,14 @@ public class Items {
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
     
-    @Column(nullable = false)
+    @Column(nullable = false, unique = true)
     private String itemName;
 
     @Column(nullable = false)
     private double price;
 
-    @JsonIgnore
     @ManyToMany(mappedBy = "items")
-    private List<Order> orders = new ArrayList<>();
+    private Set<Order> orders = new HashSet<>();
 
     @Enumerated(EnumType.STRING)
     private CategoryFood categoryFood;
