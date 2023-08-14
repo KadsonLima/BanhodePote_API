@@ -28,7 +28,7 @@ abstract class User {
     }
 
     @Id
-    @GeneratedValue(strategy = GenerationType.SEQUENCE, generator = "users_seq")
+    @GeneratedValue(strategy = GenerationType.AUTO, generator = "users_seq")
     @SequenceGenerator(name = "users_seq", allocationSize = 25)
     private Long id;
 
@@ -42,8 +42,7 @@ abstract class User {
     @Column(length = 30, nullable = false)
     private String email;
     
-    @Column(length = 10, nullable = false)
+    @Column(length = 30, nullable = false)
     public String name;
-
    
 }

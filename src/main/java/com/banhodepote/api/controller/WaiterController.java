@@ -12,8 +12,6 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
 import com.banhodepote.api.dto.UserDTO;
-import com.banhodepote.api.model.Items;
-import com.banhodepote.api.model.Order;
 import com.banhodepote.api.model.Waiter;
 import com.banhodepote.api.repository.OrderRepository;
 import com.banhodepote.api.repository.WaiterRepository;
@@ -48,10 +46,5 @@ public class WaiterController {
         return repository.findAllByName(name);
     } 
 
-    @PostMapping("/{mesa}")
-    public List<Order> addOrder(@RequestBody List<Items> items,@PathVariable int mesa){
-        Order order = orderService.criarPedido(items, Long.valueOf(1) );
-        return orderRepository.findAll();
-
-    }
+    
 }

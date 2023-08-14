@@ -1,15 +1,13 @@
 package com.banhodepote.api.model;
 
-import java.util.ArrayList;
 import java.util.Date;
-import java.util.List;
-
+import java.util.HashSet;
+import java.util.Set;
 import com.banhodepote.api.enums.Status;
 import com.fasterxml.jackson.annotation.JsonFormat;
 import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
 import com.fasterxml.jackson.annotation.JsonManagedReference;
 
-import jakarta.persistence.CascadeType;
 import jakarta.persistence.Column;
 import jakarta.persistence.Entity;
 import jakarta.persistence.EnumType;
@@ -41,29 +39,58 @@ public class Order {
     @JsonManagedReference
     private Waiter waiter;
 
-    @JsonIgnoreProperties("orders")
-    @ManyToMany(cascade = {CascadeType.PERSIST, CascadeType.MERGE})
+
+    @ManyToMany
     @JoinTable(name = "order_item",
                joinColumns = @JoinColumn(name = "order_id"),
                inverseJoinColumns = @JoinColumn(name = "item_id"))
-    private List<Items> items = new ArrayList<>();
+    private Set<Items> items = new HashSet<>();
 
     
     @Column(nullable = false)
     @JsonFormat(pattern = "dd/MM/yyyy")
     private Date createdAt = new Date();
 
+
     @Enumerated(EnumType.STRING)
-    private Status status = Status.OPEN;
+    private Status status;
+
+    @Column(nullable = false)
+    private Integer mesa;
 
     @Override
     public String toString() {
         return "Order(id=" + id + ", createdAt=" + createdAt + ", status=" + status + ")";
     } 
     
-    public Order(Waiter waiter, List<Items> items) {
+    public Order(Waiter waiter, Set<Items> items, int mesa) {
         this.waiter = waiter;
         this.items = items;
+        this.status = Status.OPEN;
+        this.mesa = mesa;
     }
+
+
+    public void setStatus(Status status) {
+        this.status = status;
+    }
+
+    public Status getStatus() {
+        return status;
+    }
+
+    public Long getId() {
+        return id;
+    }
+
+    public void setWaiter(Waiter waiter) {
+        this.waiter = waiter;
+    }
+
+    public void setMesa(int mesa) {
+        this.mesa = mesa;
+    }
+
+
 
 }
