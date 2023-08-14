@@ -70,7 +70,7 @@ public class OrderController {
         }
     }
 
-    @PatchMapping("/orderList")
+    @PatchMapping("/updateListOrders")
     @Transactional
     public ResponseEntity<?> updateListOrders(@RequestBody List<Long> listOrder) {
         try {
