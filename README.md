@@ -2,7 +2,7 @@ Projeto BanhoDePote - API
 
 # Visão geral
 
-O projeto é uma aplicação back-end com objetivo de demonstrar a produtividade de construir APIs utilizando os frameworks [Spring Boot](https://projects.spring.io/spring-boot), [Spring MVC](https://docs.spring.io/spring/docs/current/spring-framework-reference/html/mvc.html) e [Spring Data](http://projects.spring.io/spring-data) em conjunto.
+O projeto é uma aplicação back-end com objetivo de um sistema de Gerenciamento de Pedidos.
 
 ## Tecnologias
 
