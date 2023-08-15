@@ -5,6 +5,7 @@ import java.util.HashSet;
 import java.util.Set;
 import com.banhodepote.api.enums.Status;
 import com.fasterxml.jackson.annotation.JsonFormat;
+import com.fasterxml.jackson.annotation.JsonIgnore;
 import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
 import com.fasterxml.jackson.annotation.JsonManagedReference;
 
@@ -38,7 +39,6 @@ public class Order {
     @JoinColumn(name = "waiter")
     @JsonManagedReference
     private Waiter waiter;
-
 
     @ManyToMany
     @JoinTable(name = "order_item",

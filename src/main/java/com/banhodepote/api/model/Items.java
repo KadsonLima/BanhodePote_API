@@ -5,7 +5,7 @@ import java.util.HashSet;
 import java.util.Set;
 import com.banhodepote.api.dto.ItemDTO;
 import com.banhodepote.api.enums.CategoryFood;
-import com.fasterxml.jackson.annotation.JsonIgnore;
+import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
 
 import jakarta.persistence.Column;
 import jakarta.persistence.Entity;
@@ -36,7 +36,7 @@ public class Items {
     @Column(nullable = false)
     private double price;
 
-    @JsonIgnore
+    @JsonIgnoreProperties("orders")
     @ManyToMany(mappedBy = "items")
     private Set<Order> orders = new HashSet<>();
 

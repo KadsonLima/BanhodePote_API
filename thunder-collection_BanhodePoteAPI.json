@@ -1,0 +1,191 @@
+{
+    "client": "Thunder Client",
+    "collectionName": "BanhodePoteAPI",
+    "dateExported": "2023-08-15T14:41:47.734Z",
+    "version": "1.1",
+    "folders": [
+        {
+            "_id": "689cac5a-db78-481d-a81c-aa5d3aab4258",
+            "name": "Items",
+            "containerId": "",
+            "created": "2023-08-14T16:48:26.384Z",
+            "sortNum": 10000
+        },
+        {
+            "_id": "c382b7dc-da91-42f6-9332-b3981e83777a",
+            "name": "Waiter",
+            "containerId": "",
+            "created": "2023-08-14T16:50:39.298Z",
+            "sortNum": 20000
+        },
+        {
+            "_id": "1b4b40c1-9ffe-48a2-91f7-c8ba828b2396",
+            "name": "Order",
+            "containerId": "",
+            "created": "2023-08-14T16:55:46.009Z",
+            "sortNum": 30000
+        }
+    ],
+    "requests": [
+        {
+            "_id": "c5b2ce1b-84c8-474d-8684-636a3579a2a9",
+            "colId": "f3c705fb-6dad-496a-8410-9e2fce4a0c51",
+            "containerId": "1b4b40c1-9ffe-48a2-91f7-c8ba828b2396",
+            "name": "Get Order ById",
+            "url": "http://127.0.0.1:8080/order/104",
+            "method": "GET",
+            "sortNum": 5000,
+            "created": "2023-08-14T16:55:46.012Z",
+            "modified": "2023-08-15T14:40:56.441Z",
+            "headers": [],
+            "params": [],
+            "tests": []
+        },
+        {
+            "_id": "a8f95e87-8e06-457e-a178-c66aff6bd073",
+            "colId": "f3c705fb-6dad-496a-8410-9e2fce4a0c51",
+            "containerId": "689cac5a-db78-481d-a81c-aa5d3aab4258",
+            "name": "Adicionar Item",
+            "url": "http://127.0.0.1:8080/items",
+            "method": "POST",
+            "sortNum": 10000,
+            "created": "2023-08-14T16:39:14.157Z",
+            "modified": "2023-08-14T16:45:19.042Z",
+            "headers": [],
+            "params": [],
+            "body": {
+                "type": "json",
+                "raw": "{\n  \"itemName\":\"Pipoca\",\n  \"price\":8.6, \n  \"categoryId\":1\n}",
+                "form": []
+            },
+            "tests": []
+        },
+        {
+            "_id": "b211e030-d277-4741-aea6-71db2a997280",
+            "colId": "f3c705fb-6dad-496a-8410-9e2fce4a0c51",
+            "containerId": "c382b7dc-da91-42f6-9332-b3981e83777a",
+            "name": "Adicionar Waiter",
+            "url": "http://127.0.0.1:8080/waiter",
+            "method": "POST",
+            "sortNum": 10000,
+            "created": "2023-08-14T16:50:39.298Z",
+            "modified": "2023-08-14T16:54:12.612Z",
+            "headers": [],
+            "params": [],
+            "body": {
+                "type": "json",
+                "raw": "{\n  \"user_name\":\"waiter1\",\n  \"name\":\"Kadson Lima\", \n  \"email\":\"waiter1@gmail.com\",\n  \"password\":\"dsadasggasad\"\n}",
+                "form": []
+            },
+            "tests": []
+        },
+        {
+            "_id": "5e3db558-fa95-49c3-92ac-95a30aa573f0",
+            "colId": "f3c705fb-6dad-496a-8410-9e2fce4a0c51",
+            "containerId": "1b4b40c1-9ffe-48a2-91f7-c8ba828b2396",
+            "name": "Adicionar Order",
+            "url": "http://127.0.0.1:8080/order/2/3",
+            "method": "POST",
+            "sortNum": 10000,
+            "created": "2023-08-14T16:55:46.010Z",
+            "modified": "2023-08-15T13:55:30.537Z",
+            "headers": [],
+            "params": [],
+            "body": {
+                "type": "json",
+                "raw": "{\n  \"items\": [1, 2, 3]\n}",
+                "form": []
+            },
+            "tests": []
+        },
+        {
+            "_id": "4b8ae5ab-f1be-4d50-a3ae-5b7dd22cec62",
+            "colId": "f3c705fb-6dad-496a-8410-9e2fce4a0c51",
+            "containerId": "1b4b40c1-9ffe-48a2-91f7-c8ba828b2396",
+            "name": "List DELIVERED",
+            "url": "http://127.0.0.1:8080/order/updateListOrders",
+            "method": "PATCH",
+            "sortNum": 15000,
+            "created": "2023-08-14T19:22:39.589Z",
+            "modified": "2023-08-15T13:53:20.582Z",
+            "headers": [],
+            "params": [],
+            "body": {
+                "type": "json",
+                "raw": "\n[1,2,3]",
+                "form": []
+            },
+            "tests": []
+        },
+        {
+            "_id": "b65a38ab-efad-48d7-b7b1-8bea63070660",
+            "colId": "f3c705fb-6dad-496a-8410-9e2fce4a0c51",
+            "containerId": "689cac5a-db78-481d-a81c-aa5d3aab4258",
+            "name": "Get All Items",
+            "url": "http://127.0.0.1:8080/items",
+            "method": "GET",
+            "sortNum": 20000,
+            "created": "2023-08-14T16:48:33.809Z",
+            "modified": "2023-08-14T16:48:41.782Z",
+            "headers": [],
+            "params": [],
+            "tests": []
+        },
+        {
+            "_id": "ac1c0964-2ce9-44a4-a09f-4f59337b144f",
+            "colId": "f3c705fb-6dad-496a-8410-9e2fce4a0c51",
+            "containerId": "c382b7dc-da91-42f6-9332-b3981e83777a",
+            "name": "Get All Waiter",
+            "url": "http://127.0.0.1:8080/waiter",
+            "method": "GET",
+            "sortNum": 20000,
+            "created": "2023-08-14T16:50:39.299Z",
+            "modified": "2023-08-14T16:54:42.368Z",
+            "headers": [],
+            "params": [],
+            "tests": []
+        },
+        {
+            "_id": "537352c9-4fca-4e71-b7aa-54087d1b73b5",
+            "colId": "f3c705fb-6dad-496a-8410-9e2fce4a0c51",
+            "containerId": "1b4b40c1-9ffe-48a2-91f7-c8ba828b2396",
+            "name": "Received or Cancel Order ById",
+            "url": "http://127.0.0.1:8080/order/cancel/53",
+            "method": "PATCH",
+            "sortNum": 20000,
+            "created": "2023-08-14T16:55:46.011Z",
+            "modified": "2023-08-15T13:54:06.953Z",
+            "headers": [],
+            "params": [],
+            "tests": []
+        },
+        {
+            "_id": "e653acc5-b4e9-415b-9793-a33a6adaadec",
+            "colId": "f3c705fb-6dad-496a-8410-9e2fce4a0c51",
+            "containerId": "689cac5a-db78-481d-a81c-aa5d3aab4258",
+            "name": "GetItemsCategoryId",
+            "url": "http://127.0.0.1:8080/items/2",
+            "method": "GET",
+            "sortNum": 30000,
+            "created": "2023-08-14T16:49:37.640Z",
+            "modified": "2023-08-14T16:50:29.504Z",
+            "headers": [],
+            "params": [],
+            "tests": []
+        },
+        {
+            "_id": "c14e4fb7-e10f-4f36-a106-18acf7e47863",
+            "colId": "f3c705fb-6dad-496a-8410-9e2fce4a0c51",
+            "containerId": "c382b7dc-da91-42f6-9332-b3981e83777a",
+            "name": "Get Waiter By Name",
+            "url": "http://127.0.0.1:8080/waiter/Kadson Lima",
+            "method": "GET",
+            "sortNum": 30000,
+            "created": "2023-08-14T16:50:39.300Z",
+            "modified": "2023-08-14T16:55:06.422Z",
+            "headers": [],
+            "params": [],
+            "tests": []
+        }
+    ]
+}

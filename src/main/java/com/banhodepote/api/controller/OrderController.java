@@ -2,6 +2,7 @@ package com.banhodepote.api.controller;
 
 import java.util.List;
 import java.util.Map;
+import java.util.Optional;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
@@ -35,8 +36,17 @@ public class OrderController {
     @GetMapping
     public List<Order> allOrders() {
 
-        List<Order> all = repository.findAll(); // returns empty
+        List<Order> all = repository.findAll();
         return all;
+    }
+
+    @GetMapping("/{orderId}")
+    public ResponseEntity<?> OrderById(@PathVariable("orderId") Long orderId) {
+
+        Optional<Order> order = repository.findById(orderId);
+        
+        if(order.isPresent()) return new ResponseEntity<>(order, HttpStatus.OK);
+        else return new ResponseEntity<>("Pedido não Encontrado", HttpStatus.NOT_FOUND);
     }
 
 
